@@ -1,21 +1,15 @@
 {
-    "repositories": [
+    "name": "johnnymck/shippingforecast",
+    "version": "0.1.0",
+    "type": "library",
+    "description": "Shipping Forecast scraping library, pulling data from the BBC's shipping forecast page. Based on tnm/shipping-forecast",
+    "license": "BSD-2-Clause",
+    "authors": [
         {
-            "type": "package",
-            "package": {
-                "name": "johnnymck/shipping-forecast",
-                "version": "dev-master",
-                "source": {
-                    "url": "git://github.com/johnnymck/shipping-forecast.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-0" : {
-                        "johnnymck\\ShippingForecast" : "src"
-                    }
-                }
-            }
+            "name": "Johnny McKenzie",
+            "email": "jzmckenzie@dundee.ac.uk",
+            "homepage": "http://www.universepie.com",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -23,7 +17,8 @@
     },
     "autoload": {
         "psr-4": {
-            "johnnymck\\": "src/"
+            "johnnymck\\": "src/",
+            "johnnymck\\Tests\\": "tests/"
         }
     }
 }
