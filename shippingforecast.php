@@ -50,11 +50,12 @@ class ShippingForecast
                 $this->locations[$location] = $location_report;
             }
         } catch (Exception $e) {
-            $e->printStackTrace();
+            echo 'ERROR:\n';
+            echo $e->getMessage();
         }
     }
 
-    public function report($location): array
+    public function get($location): array
     {
         return [
             'time' => $this->time,
@@ -62,7 +63,7 @@ class ShippingForecast
         ];
     }
 
-    public function reportAll(): array
+    public function getAll(): array
     {
         return [
             'time' => $this->time,
