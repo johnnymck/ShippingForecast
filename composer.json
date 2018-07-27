@@ -1,4 +1,23 @@
 {
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "johnnymck/shipping-forecast",
+                "version": "dev-master",
+                "source": {
+                    "url": "git://github.com/johnnymck/shipping-forecast.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0" : {
+                        "johnnymck\\ShippingForecast" : "src"
+                    }
+                }
+            }
+        }
+    ],
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "fabpot/goutte": "^3.2"
