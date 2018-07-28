@@ -1,6 +1,6 @@
 {
-    "name": "Johnnymck/ShippingForecast",
-    "version": "0.1.0",
+    "name": "johnnymck/shippingforecast",
+    "version": "0.1.1",
     "type": "library",
     "description": "Shipping Forecast scraping library, pulling data from the BBC's shipping forecast page. Based on tnm/shipping-forecast",
     "license": "BSD-2-Clause",
