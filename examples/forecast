@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+include_once 'vendor/autoload.php';
+
+use johnnymck\ShippingForecast as SF;
+
+if (!is_null($argv[1])) {
+    $sf = new SF();
+    $zone = $sf->get($argv[1]);
+    print_r($zone['content']['location'] . ".\n");
+    print_r($zone['time'] . ":\n\n");
+    if (!empty($zone['content']['warning'])) {
+        print_r($zone['content']['warning']['title'] . ".\n");
+        print_r($zone['content']['warning']['issued'] . ".\n");
+        print_r($zone['content']['warning']['summary'] . ".\n");
+        print_r("\n");
+    }
+    print_r($zone['content']['wind'] . "\n");
+    print_r($zone['content']['seas'] . "\n");
+    print_r($zone['content']['weather'] . "\n");
+    print_r($zone['content']['visibility'] . "\n");
+}
