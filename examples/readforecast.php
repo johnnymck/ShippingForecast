@@ -2,7 +2,7 @@
 
 include_once 'vendor/autoload.php';
 
-use johnnymck\ShippingForecast;
+use Johnnymck\ShippingForecast\ShippingForecast;
 
 foreach ((new ShippingForecast())->getAll()['content'] as $zone) {
     print_r($zone['location'] . ":\n");

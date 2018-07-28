@@ -1,6 +1,6 @@
 <?php
 
-namespace johnnymck;
+namespace Johnnymck\ShippingForecast;
 
 require_once 'vendor/autoload.php';
 
