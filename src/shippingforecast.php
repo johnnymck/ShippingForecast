@@ -6,6 +6,9 @@ require_once 'vendor/autoload.php';
 
 use Goutte\Client;
 
+/**
+ * Scrapes data from BBC shipping forecast webpage and returns it in an easy to use format.
+ */
 class ShippingForecast
 {
     protected $client;
@@ -20,6 +23,11 @@ class ShippingForecast
         $this->load();
     }
 
+    /**
+     * Performs initialisation upon instantiation by getting scraping from BBC webpage.
+     *
+     * Not _strictly_ savvy to format the initialisation this way, but may prove more DRY in future.
+     */
     protected function load(): void
     {
         try {
@@ -55,6 +63,14 @@ class ShippingForecast
         }
     }
 
+    /**
+     * Takes a specific location and returns forecast on that location.
+     *
+     * @param string $location Capitalised forecast zone eg, 'Forth', 'German Bight' or
+     * 'Dogger' as opposed to 'forth', 'german bight' or 'dogger'.
+     *
+     * @return array Returns an assoc arrray of the data, with a time key and a content key.
+     */
     public function get($location): array
     {
         return [
@@ -63,6 +79,11 @@ class ShippingForecast
         ];
     }
 
+    /**
+     * Returns an array of all locations and their respective forecast and warnings.
+     *
+     * @return array Returns an array of all locations containing the data, with a time key and a content key as with ShippingForecast::get().
+     */
     public function getAll(): array
     {
         return [
