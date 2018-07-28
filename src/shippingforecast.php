@@ -45,7 +45,7 @@ class ShippingForecast
                     'wind' => $breakdown->eq(0)->text(),
                     'seas' => $breakdown->eq(1)->text(),
                     'weather' => $breakdown->eq(2)->text(),
-                    'visability' => $breakdown->eq(3)->text(),
+                    'visibility' => $breakdown->eq(3)->text(),
                 ];
                 $this->locations[$location] = $location_report;
             }
