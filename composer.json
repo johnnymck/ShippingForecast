@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "fabpot/goutte": "^3.2"
+        "fabpot/goutte": "^3.2",
+        "phpunit/phpunit": "^7.2"
     },
     "autoload": {
         "psr-4": {
