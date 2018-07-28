@@ -11,7 +11,7 @@ Installation
 Usage
 -----
 ```php
-use johnnymck\ShippingForecast;
+use Johnnymck\ShippingForecast\ShippingForecast;
 
 $forecast = new ShippingForecast();
 $cromarty = $forecast->get('Cromarty'); // location names must be capitalised
