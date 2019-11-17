@@ -1,10 +1,10 @@
 <?php
 
-include_once 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
-use Johnnymck\ShippingForecast\ShippingForecast;
+use ShippingForecast\ShippingForecast as SF;
 
-foreach ((new ShippingForecast())->getAll()['content'] as $zone) {
+foreach ((new SF())->getAll()['content'] as $zone) {
     print_r($zone['location'] . ":\n");
     print_r($zone['wind'] . "\n");
     print_r($zone['seas'] . "\n");

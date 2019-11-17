@@ -3,7 +3,7 @@
 
 include_once 'vendor/autoload.php';
 
-use Johnnymck\ShippingForecast\ShippingForecast as SF;
+use ShippingForecast\ShippingForecast as SF;
 
 if (!is_null($argv[1])) {
     $sf = new SF();
