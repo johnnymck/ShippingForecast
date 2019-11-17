@@ -1,23 +1,21 @@
 {
     "name": "johnnymck/shippingforecast",
-    "version": "0.1.1",
-    "type": "library",
+    "version": "0.1.2",
     "description": "Shipping Forecast scraping library, pulling data from the BBC's shipping forecast page. Based on tnm/shipping-forecast",
+    "type": "library",
+    "require": {
+        "fabpot/goutte": "3.2"
+    },
     "license": "BSD-2-Clause",
     "authors": [
         {
             "name": "Johnny McKenzie",
-            "email": "jzmckenzie@dundee.ac.uk",
-            "homepage": "http://www.universepie.com",
-            "role": "Developer"
+            "email": "jzmckenzie@dundee.ac.uk"
         }
     ],
-    "require": {
-        "fabpot/goutte": "^3.2"
-    },
     "autoload": {
         "psr-4": {
-            "Johnnymck\\ShippingForecast\\": "src/"
+            "ShippingForecast\\": "src/ShippingForecast"
         }
     }
 }
