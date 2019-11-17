@@ -11,13 +11,13 @@ Installation
 Usage
 -----
 ```php
-use Johnnymck\ShippingForecast\ShippingForecast;
+use ShippingForecast\ShippingForecast;
 
 $forecast = new ShippingForecast();
 $cromarty = $forecast->get('Cromarty'); // location names must be capitalised
 
 echo $cromarty['time']; // eg,  'The general synopsis at 1800'...
-print_r($cromarty['content']['warning']); // eg, []
+print_r($cromarty['content']['warning']); // returns array of warnings (often empty, though not in wintertime 😅)
 echo $cromarty['content']['visibility']; // eg, 'Good, occasionally poor'...
 ```
 
@@ -25,6 +25,6 @@ It's worth noting that `ShippingForecast::get($foo)` and `ShippingForecast::getA
 
 Fun Stuff!
 ----------
-Running `php examples/readforecast.php` and piping the output into a text-to-speech application (such as `say` on Macintosh) will read the latest forecast update without you having to bother tuning your wireless sets to BBC R4, 3 times a day. What a time to be alive!
+Running `php readforecast.php` in the root of the application and piping the output into a text-to-speech application (such as `say` on Macintosh) will read the latest forecast update without you having to bother tuning your wireless sets to BBC R4, 3 times a day. What a time to be alive!
 
-`./examples/forecast [zone here]` will return the forecast in plaintext in your desired zone
+`./forecast [Capitalised zone name here]` will return the forecast in plaintext in your desired zone
