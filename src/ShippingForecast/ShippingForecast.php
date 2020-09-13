@@ -13,9 +13,9 @@ class ShippingForecast
 {
     protected $client;
     // This address may update in the future, so will need to be amended
-    protected $source = 'https://www.bbc.com/weather/coast_and_sea/shipping_forecast';
-    protected $locations = [];
-    protected $time;
+    protected $source = 'https://www.bbc.co.uk/weather/coast-and-sea/shipping-forecast';
+    public $locations = [];
+    public $time;
 
     public function __construct()
     {
@@ -32,21 +32,22 @@ class ShippingForecast
     {
         try {
             $crawler = $this->client->request('GET', $this->source);
-            $this->time = $crawler->filter('h2.issued')->text();
-            for ($i = 1; $i <= 31; $i++) {
-                $area = $crawler->filter('#area-' . $i);
-                $location = $area->filter('h2')->text();
-                $warningDetail = $area->filter('.warning-detail');
+            $this->time = $crawler->filter('h2.wr-c-coastandsea-summary__title')->text();
+            $crawler->filter('div.wr-c-coastandsea-region')->each(function ($area) {
+                $location = $area->filter('h3')->text();
+                $warningDetail = $area->filter('div.wr-c-coastandsea-warnings-banner');
                 if (($warningDetail->count()) == 1) {
+                    printf("\n\nI may be breaking at a weather warning\n\n");
+                    $details_proper = $warningDetail->filter('p');
                     $warning = [
-                        'title' => str_replace(':', '', $warningDetail->filter('strong')->text()),
-                        'issued' => $warningDetail->filter('.issued')->text(),
-                        'summary' => $warningDetail->filter('.summary')->text(),
+                        'summary' => $details_proper->eq(0)->text(),
+                        'issued' => $details_proper->eq(1)->text(),
+                        'title' => $warningDetail->text(),
                     ];
                 } else {
                     $warning = [];
                 }
-                $breakdown = $area->filter('ul')->children()->filter('span');
+                $breakdown = $area->filter('p');
                 $location_report = [
                     'warning' => $warning,
                     'location' => $location,
@@ -56,7 +57,8 @@ class ShippingForecast
                     'visibility' => $breakdown->eq(3)->text(),
                 ];
                 $this->locations[$location] = $location_report;
-            }
+                print_r("\n\n I'm not breaking here!! \n \n");
+            });
         } catch (Exception $e) {
             echo 'ERROR:\n';
             echo $e->getMessage();
