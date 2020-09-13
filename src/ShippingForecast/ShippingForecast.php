@@ -37,7 +37,6 @@ class ShippingForecast
                 $location = $area->filter('h3')->text();
                 $warningDetail = $area->filter('div.wr-c-coastandsea-warnings-banner');
                 if (($warningDetail->count()) == 1) {
-                    printf("\n\nI may be breaking at a weather warning\n\n");
                     $details_proper = $warningDetail->filter('p');
                     $warning = [
                         'summary' => $details_proper->eq(0)->text(),
