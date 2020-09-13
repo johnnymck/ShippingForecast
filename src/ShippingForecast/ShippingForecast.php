@@ -56,7 +56,6 @@ class ShippingForecast
                     'visibility' => $breakdown->eq(3)->text(),
                 ];
                 $this->locations[$location] = $location_report;
-                print_r("\n\n I'm not breaking here!! \n \n");
             });
         } catch (Exception $e) {
             echo 'ERROR:\n';
